@@ -905,8 +905,68 @@ body {
 @media (max-width: 900px) {
   #main-layout { flex-direction: column; height: auto; }
   #board-area { min-width: auto; height: 480px; }
-  #side-panel { width: 100%; flex-direction: row; flex-wrap: wrap; }
-  #side-panel .panel { flex: 1; min-width: 200px; }
+  #side-panel { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 6px; }
+  #side-panel .panel { flex: 1; min-width: 180px; }
+}
+
+/* 手机竖屏：进一步压缩所有间距和字体 */
+@media (max-width: 480px) {
+  body { padding: 4px; }
+  #game-header { padding: 8px 12px; }
+  #game-header h1 { font-size: 1.25em; }
+  .header-info .label { font-size: 0.9em; }
+  .header-info .value { font-size: 1.0em; }
+
+  #main-layout { gap: 6px; }
+  #board-area { height: 400px; }
+  #board-center { padding: 8px; }
+  #board-center .bc-progress { padding: 6px 10px; }
+  #wisdom-toast { max-width: 100%; padding-left: 10px; padding-right: 10px; }
+  #wisdom-toast .w-quote { font-size: 0.82em; }
+  #wisdom-toast .w-source { font-size: 0.68em; }
+
+  #side-panel { padding: 0; }
+  #side-top { gap: 4px; }
+  #side-mid { max-height: 500px; }
+  .panel { padding: 8px; }
+  .panel h3 { font-size: 0.9em; margin-bottom: 4px; }
+  .fin-row { font-size: 0.82em; padding: 2px 0; }
+  .fin-row .fin-val { font-size: 0.95em; }
+
+  #dice-area { gap: 4px; }
+  .dice { width: 50px; height: 50px; }
+  .btn { padding: 6px 10px; font-size: 0.85em; }
+  .btn-sm { padding: 4px 8px; }
+}
+
+/* 超小屏 */
+@media (max-width: 360px) {
+  #board-area { height: 360px; }
+  .bc-title { font-size: 1.0em; }
+  .bc-sub { font-size: 0.75em; }
+}
+
+/* 手机端：调整模态框和欢迎页 */
+@media (max-width: 480px) {
+  .modal { padding: 16px; max-width: 96%; }
+  .modal h2 { font-size: 1.1em; margin-bottom: 10px; }
+  .modal .card-desc { font-size: 0.85em; }
+  .modal .card-fin { padding: 8px; font-size: 0.78em; }
+
+  .ws-container { padding: 12px; }
+  .ws-logo { font-size: 2.2em; }
+  .ws-title { font-size: 1.8em; letter-spacing: 0.04em; }
+  .ws-sub { font-size: 0.85em; }
+  .tier-card { padding: 6px 4px; }
+  .tier-card .tier-icon { font-size: 1.4em; }
+  .tier-card .tier-name { font-size: 0.82em; }
+  .tier-card .tier-range { font-size: 0.65em; }
+  .career-grid { gap: 6px; padding: 2px; }
+  .career-card { padding: 6px 8px; }
+  .career-card .career-name { font-size: 0.85em; }
+  .career-card .career-info { font-size: 0.68em; }
+  #edit-step { margin-top: 8px; }
+  #edit-step h2 { font-size: 1.0em; }
 }
 </style>
 </head>
