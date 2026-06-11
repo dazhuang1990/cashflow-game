@@ -912,31 +912,32 @@ body {
 /* 手机竖屏：进一步压缩所有间距和字体 */
 @media (max-width: 480px) {
   body { padding: 4px; }
-  #game-header { padding: 8px 12px; }
-  #game-header h1 { font-size: 1.25em; }
-  .header-info .label { font-size: 0.9em; }
-  .header-info .value { font-size: 1.0em; }
+  #game-header { padding: 6px 10px; }
+  #game-header h1 { font-size: 1.15em; }
+  .header-info .label { font-size: 0.85em; }
+  .header-info .value { font-size: 0.95em; }
 
-  #main-layout { gap: 6px; }
-  #board-area { height: 400px; }
-  #board-center { padding: 8px; }
-  #board-center .bc-progress { padding: 6px 10px; }
-  #wisdom-toast { max-width: 100%; padding-left: 10px; padding-right: 10px; }
-  #wisdom-toast .w-quote { font-size: 0.82em; }
-  #wisdom-toast .w-source { font-size: 0.68em; }
+  #main-layout { gap: 4px; }
+  #main-layout { flex-direction: column; }
+  #board-area { height: 340px; min-width: auto !important; }
+  #board-center { padding: 6px; gap: 4px; }
+  #board-center .bc-progress { padding: 4px 8px; }
+  #wisdom-toast { max-width: 100%; padding-left: 8px; padding-right: 8px; }
+  #wisdom-toast .w-quote { font-size: 0.8em; }
+  #wisdom-toast .w-source { font-size: 0.65em; }
 
-  #side-panel { padding: 0; }
+  #side-panel { width: 100% !important; padding: 0; }
   #side-top { gap: 4px; }
-  #side-mid { max-height: 500px; }
-  .panel { padding: 8px; }
-  .panel h3 { font-size: 0.9em; margin-bottom: 4px; }
-  .fin-row { font-size: 0.82em; padding: 2px 0; }
-  .fin-row .fin-val { font-size: 0.95em; }
+  #side-mid { max-height: none; flex: none; }
+  .panel { padding: 6px 8px; }
+  .panel h3 { font-size: 0.85em; margin-bottom: 4px; }
+  .fin-row { font-size: 0.8em; padding: 2px 0; }
+  .fin-row .fin-val { font-size: 0.9em; }
 
   #dice-area { gap: 4px; }
-  .dice { width: 50px; height: 50px; }
-  .btn { padding: 6px 10px; font-size: 0.85em; }
-  .btn-sm { padding: 4px 8px; }
+  .dice { width: 44px; height: 44px; }
+  .btn { padding: 5px 8px; font-size: 0.82em; }
+  .btn-sm { padding: 3px 6px; }
 }
 
 /* 超小屏 */
