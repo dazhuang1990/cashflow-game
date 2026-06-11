@@ -902,72 +902,100 @@ body {
 }
 
 /* ====== Responsive ====== */
+
+/* 平板：棋盘在上，面板在下 */
 @media (max-width: 900px) {
   #main-layout { flex-direction: column; height: auto; }
-  #board-area { min-width: auto; height: 480px; }
-  #side-panel { width: 100%; flex-direction: row; flex-wrap: wrap; gap: 6px; }
-  #side-panel .panel { flex: 1; min-width: 180px; }
+  #board-area { min-width: auto; height: 460px; }
+  #side-panel { width: 100% !important; }
+  #side-mid { max-height: 400px; }
 }
 
-/* 手机竖屏：进一步压缩所有间距和字体 */
+/* 手机竖屏：紧凑单列布局 */
 @media (max-width: 480px) {
-  body { padding: 4px; }
-  #game-header { padding: 6px 10px; }
-  #game-header h1 { font-size: 1.15em; }
-  .header-info .label { font-size: 0.85em; }
-  .header-info .value { font-size: 0.95em; }
+  /* --- 全局 --- */
+  body { padding: 2px; }
+  #game-container { padding: 4px; }
 
-  #main-layout { gap: 4px; }
-  #main-layout { flex-direction: column; }
-  #board-area { height: 340px; min-width: auto !important; }
-  #board-center { padding: 6px; gap: 4px; }
-  #board-center .bc-progress { padding: 4px 8px; }
-  #wisdom-toast { max-width: 100%; padding-left: 8px; padding-right: 8px; }
-  #wisdom-toast .w-quote { font-size: 0.8em; }
-  #wisdom-toast .w-source { font-size: 0.65em; }
+  /* --- 顶部 --- */
+  #game-header { padding: 6px 8px; gap: 4px; margin-bottom: 4px; }
+  #game-header h1 { font-size: 0.95em; }
+  .header-info { gap: 4px; }
+  .header-info .label { font-size: 0.72em; }
+  .header-info .value { font-size: 0.82em; }
 
-  #side-panel { width: 100% !important; padding: 0; }
-  #side-top { gap: 4px; }
-  #side-mid { max-height: none; flex: none; }
-  .panel { padding: 6px 8px; }
-  .panel h3 { font-size: 0.85em; margin-bottom: 4px; }
-  .fin-row { font-size: 0.8em; padding: 2px 0; }
-  .fin-row .fin-val { font-size: 0.9em; }
+  /* --- 主布局 --- */
+  #main-layout { flex-direction: column; height: auto; gap: 4px; }
 
-  #dice-area { gap: 4px; }
-  .dice { width: 44px; height: 44px; }
-  .btn { padding: 5px 8px; font-size: 0.82em; }
-  .btn-sm { padding: 3px 6px; }
-}
+  /* --- 棋盘区域：缩小角落格子，压缩整体高度 --- */
+  #board-area {
+    height: 280px;
+    min-width: auto !important;
+    border-width: 1px;
+  }
+  #board-grid {
+    grid-template-columns: 46px 1fr 46px;
+    grid-template-rows: 46px 1fr 46px;
+    gap: 1px;
+  }
+  .board-corner { border-width: 2px; }
+  .board-corner::before { inset: 1px; border-width: 2px; }
+  .grate { inset: 6px; }
+  /* 减小格子图标和字体 */
+  .btile { border-width: 1px; }
+  .btile .bt-icon { font-size: 1.4em; }
+  .btile .bt-name { font-size: 0.68em; margin-top: 0; }
+  .btile .bt-num  { font-size: 0.6em; }
 
-/* 超小屏 */
-@media (max-width: 360px) {
-  #board-area { height: 360px; }
-  .bc-title { font-size: 1.0em; }
-  .bc-sub { font-size: 0.75em; }
-}
+  /* --- 棋盘中心 --- */
+  #board-center { padding: 4px; gap: 2px; }
+  #board-center .bc-stage { font-size: 1.2em; }
+  #board-center .bc-title { font-size: 0.85em; }
+  #board-center .bc-sub   { font-size: 0.68em; }
+  #board-center .bc-progress { padding: 3px 6px; font-size: 0.72em; }
 
-/* 手机端：调整模态框和欢迎页 */
-@media (max-width: 480px) {
-  .modal { padding: 16px; max-width: 96%; }
-  .modal h2 { font-size: 1.1em; margin-bottom: 10px; }
-  .modal .card-desc { font-size: 0.85em; }
-  .modal .card-fin { padding: 8px; font-size: 0.78em; }
+  /* --- 名言 --- */
+  #wisdom-toast { max-width: 100%; padding-left: 6px; padding-right: 6px; }
+  #wisdom-toast .w-quote { font-size: 0.7em; }
+  #wisdom-toast .w-source { font-size: 0.6em; }
 
-  .ws-container { padding: 12px; }
-  .ws-logo { font-size: 2.2em; }
-  .ws-title { font-size: 1.8em; letter-spacing: 0.04em; }
-  .ws-sub { font-size: 0.85em; }
-  .tier-card { padding: 6px 4px; }
-  .tier-card .tier-icon { font-size: 1.4em; }
-  .tier-card .tier-name { font-size: 0.82em; }
-  .tier-card .tier-range { font-size: 0.65em; }
-  .career-grid { gap: 6px; padding: 2px; }
-  .career-card { padding: 6px 8px; }
-  .career-card .career-name { font-size: 0.85em; }
-  .career-card .career-info { font-size: 0.68em; }
-  #edit-step { margin-top: 8px; }
-  #edit-step h2 { font-size: 1.0em; }
+  /* --- 右侧面板 --- */
+  #side-panel { width: 100% !important; flex-direction: column !important; }
+  #side-top { gap: 3px; }
+  #side-mid { max-height: 250px; flex: none; }
+  .panel { padding: 5px 6px; }
+  .panel h3 { font-size: 0.8em; margin-bottom: 2px; }
+  .fin-row { font-size: 0.75em; padding: 1px 0; }
+  .fin-row .fin-val { font-size: 0.82em; }
+
+  /* --- 骰子和按钮 --- */
+  #dice-area { gap: 3px; }
+  .dice { width: 38px; height: 38px; }
+  .btn { padding: 4px 6px; font-size: 0.78em; }
+  .btn-sm { padding: 3px 5px; font-size: 0.72em; }
+
+  /* --- 模态框 --- */
+  .modal { padding: 12px; max-width: 98%; }
+  .modal h2 { font-size: 1.0em; margin-bottom: 8px; }
+  .modal .card-desc { font-size: 0.8em; }
+  .modal .card-fin { padding: 6px; font-size: 0.72em; }
+
+  /* --- 欢迎页 --- */
+  .ws-container { padding: 8px; }
+  .ws-logo { font-size: 1.8em; }
+  .ws-title { font-size: 1.5em; letter-spacing: 0.03em; }
+  .ws-sub { font-size: 0.75em; }
+  .ws-goal { font-size: 0.78em; padding: 6px 10px; }
+  .tier-card { padding: 4px 3px; }
+  .tier-card .tier-icon { font-size: 1.2em; }
+  .tier-card .tier-name { font-size: 0.72em; }
+  .tier-card .tier-range { font-size: 0.6em; }
+  .career-grid { gap: 4px; padding: 2px; }
+  .career-card { padding: 4px 6px; }
+  .career-card .career-name { font-size: 0.78em; }
+  .career-card .career-info { font-size: 0.62em; }
+  #edit-step { margin-top: 6px; }
+  #edit-step h2 { font-size: 0.9em; }
 }
 </style>
 </head>
