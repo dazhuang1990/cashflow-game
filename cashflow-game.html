@@ -865,31 +865,39 @@ body {
 
 /* ====== Wisdom Toast ====== */
 #wisdom-toast {
-  position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
-  max-width: 600px;
+  max-width: 520px;
   background: linear-gradient(135deg, #1a1a0a, #1c1a08);
-  border: 2px solid rgba(240, 192, 64, 0.6);
-  border-radius: 14px;
-  padding: 16px 28px;
-  z-index: 210;
-  opacity: 0;
-  transition: opacity 0.5s, transform 0.5s;
-  pointer-events: none;
+  border: 2px solid rgba(240, 192, 64, 0.5);
+  border-radius: 12px;
+  padding: 12px 20px;
   text-align: center;
-  box-shadow: 0 8px 40px rgba(240,192,64,0.15);
+  box-shadow: 0 4px 20px rgba(240,192,64,0.12);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
 }
-#wisdom-toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+#wisdom-toast.show {
+  max-height: 120px;
+  opacity: 1;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 14px;
+}
 #wisdom-toast .w-quote {
-  font-size: 1.02em;
+  font-size: 0.9em;
   color: #f0e0a0;
   font-style: italic;
-  line-height: 1.5;
-  margin-bottom: 4px;
+  line-height: 1.45;
+  margin-bottom: 2px;
 }
-#wisdom-toast .w-quote::before { content: '\201C'; font-size: 1.4em; color: #f0c040; }
-#wisdom-toast .w-quote::after  { content: '\201D'; font-size: 1.4em; color: #f0c040; }
+#wisdom-toast .w-quote::before { content: '\201C'; font-size: 1.2em; color: #f0c040; }
+#wisdom-toast .w-quote::after  { content: '\201D'; font-size: 1.2em; color: #f0c040; }
 #wisdom-toast .w-source {
-  font-size: 0.75em;
+  font-size: 0.72em;
   color: #8b7a4e;
 }
 
@@ -906,10 +914,6 @@ body {
 
 <!-- Toast -->
 <div id="toast"></div>
-<div id="wisdom-toast">
-  <div class="w-quote" id="wisdom-quote"></div>
-  <div class="w-source" id="wisdom-source"></div>
-</div>
 
 <!-- Welcome / Career Screen -->
 <div id="welcome-screen">
@@ -991,6 +995,10 @@ body {
           <div class="bc-title" id="bc-title"></div>
           <div class="bc-sub" id="bc-sub"></div>
           <div class="bc-progress" id="bc-progress"></div>
+          <div id="wisdom-toast">
+            <div class="w-quote" id="wisdom-quote"></div>
+            <div class="w-source" id="wisdom-source"></div>
+          </div>
         </div>
         <div class="board-edge board-edge-right" id="edge-right"></div>
         <div class="board-corner" id="corner-bl"><div class="grate"></div></div>
