@@ -4,7 +4,7 @@
 
 基于罗伯特·清崎《富爸爸穷爸爸》财商教育理念的纯前端现金流游戏。掷骰子、买资产、跳出老鼠圈、实现财务自由。
 
-**🎮 [在线体验](https://你的用户名.github.io/cashflow-game)**（部署后替换此链接）
+**🎮 [在线体验](https://dazhuang1990.github.io/cashflow-game)**
 
 ---
 
